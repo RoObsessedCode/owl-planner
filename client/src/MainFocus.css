@@ -1,0 +1,38 @@
+
+.MainFocus-HeadDiv {
+  justify-content: center;
+  display: flex;
+  vertical-align: middle;
+  flex-grow: 1;
+
+}
+
+.MainFocus-Form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  vertical-align: middle;
+  max-width:100%;
+
+}
+
+.MainFocus-div  {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.MainFocus-TextArea {
+  /* width: 80%; */
+
+}
+
+.MainFocus-SubmitButton {
+  padding-left: 4em;
+}
+
+.MainFocus-Display {
+  max-width: 502px;
+  box-sizing: border-box;
+}

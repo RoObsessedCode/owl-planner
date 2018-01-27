@@ -1,10 +1,11 @@
 .App {
-  text-align: left;
+  text-align: center;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 60px;
+  border-radius: 25px;
 }
 
 .App-header {
