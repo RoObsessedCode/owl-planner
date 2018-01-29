@@ -28,35 +28,27 @@ class MainFocus extends Component {
   // kyle is awesome
   render() {
     return (
-      <div className="MainFocus-HeadDiv">
-        <form className="MainFocus-Form" onSubmit={e => this.handleSubmit(e)}>
-          <header >
-            Which of your obsessions will you tackle today?
-          </header>
-          <div className="MainFocus-div">
-            <textarea
-              className="MainFocus-TextArea"
-              rows={1}
-              placeholder="Today's Main Focus..."
-              value={this.state.mainFocusInput}
-              onChange={e => this.handleChange(e)}
-            />
+      <form className="MainFocus-Form" onSubmit={e => this.handleSubmit(e)}>
+        <header className="MainFocus-Header" >Which of your obsessions will you tackle today?</header>
+        <div className="MainFocus-Div">
+          <input
+            className="MainFocus-TextArea input"
+            rows={1}
+            placeholder="Today's Main Focus..."
+            value={this.state.mainFocusInput}
+            onChange={e => this.handleChange(e)}
+          />
 
-            <button className="MainFocus-SubmitButton" type="submit" animated>
-              Carpe Diem!
-            </button>
-          </div>
-          <div className="MainFocus-Display">
-            <div>
-              {this.state.isVisible && (
-                <textarea >
-                  {this.state.mainFocusResult}
-                </textarea>
-              )}
-            </div>
-          </div>
-        </form>
-      </div>
+          <button className="MainFocus-SubmitButton button is-small is-rounded" type="submit" animated>
+            Carpe Diem!
+          </button>
+        </div>
+        <div className="MainFocus-Display">
+            {this.state.isVisible && (
+              <textarea>{this.state.mainFocusResult}</textarea>
+            )}
+        </div>
+      </form>
     );
   }
 }

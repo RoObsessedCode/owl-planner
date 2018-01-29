@@ -1,10 +1,8 @@
-
-.MainFocus-HeadDiv {
+/* .MainFocus-HeadDiv {
   justify-content: center;
   display: flex;
   vertical-align: middle;
   flex-grow: 1;
-
 }
 
 .MainFocus-Form {
@@ -12,21 +10,18 @@
   justify-content: center;
   flex-direction: column;
   vertical-align: middle;
-  max-width:100%;
-
+  max-width: 100%;
 }
 
-.MainFocus-div  {
+.MainFocus-div {
   max-width: 1000px;
   display: flex;
   flex-direction: row;
-
 }
 
 .MainFocus-TextArea {
   /* width: 80%; */
-
-}
+/* }
 
 .MainFocus-SubmitButton {
   padding-left: 4em;
@@ -34,5 +29,34 @@
 
 .MainFocus-Display {
   max-width: 502px;
-  box-sizing: border-box;
+  box-sizing: border-box; */
+/* } */
+
+.MainFocus-Form {
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  height: 50vh;
+  justify-content: center;
+
+}
+.MainFocus-TextArea {
+  width: 50%;
+}
+
+.MainFocus-SubmitButton {
+
+  margin-left: 10px;
+}
+
+.MainFocus-Header {
+  flex-grow: 1;
+  margin-top: 1px;
+}
+
+.MainFocus-Div {
+  flex-grow: 5;
+}
+.MainFocus-Display {
+  flex-grow: 3;
 }
