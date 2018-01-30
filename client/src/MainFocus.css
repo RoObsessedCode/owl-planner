@@ -51,12 +51,13 @@
 
 .MainFocus-Header {
   flex-grow: 1;
-  margin-top: 1px;
+  /* margin-top: 5px; */
+  padding-top: 10px;
   text-decoration: underline;
 }
 
 .MainFocus-Div {
-  flex-grow: 5;
+  flex-grow: 4;
 }
 
 .MainFocus-DisplayDiv {
