@@ -38,25 +38,38 @@
   vertical-align: middle;
   height: 50vh;
   justify-content: center;
-
 }
 .MainFocus-TextArea {
   width: 50%;
 }
 
 .MainFocus-SubmitButton {
-
   margin-left: 10px;
+  margin-top: 4px;
+
 }
 
 .MainFocus-Header {
   flex-grow: 1;
   margin-top: 1px;
+  text-decoration: underline;
 }
 
 .MainFocus-Div {
   flex-grow: 5;
 }
+
+.MainFocus-DisplayDiv {
+
+  display: flex;
+  width: 100%;
+  justify-content: center;
+   padding-left: 25%;
+  padding-right: 25%;
+}
+
 .MainFocus-Display {
   flex-grow: 3;
+  text-align: center;
+  align-self: center;
 }

@@ -29,7 +29,9 @@ class MainFocus extends Component {
   render() {
     return (
       <form className="MainFocus-Form" onSubmit={e => this.handleSubmit(e)}>
-        <header className="MainFocus-Header" >Which of your obsessions will you tackle today?</header>
+        <header className="MainFocus-Header">
+          Which of your obsessions will you tackle today?
+        </header>
         <div className="MainFocus-Div">
           <input
             className="MainFocus-TextArea input"
@@ -39,15 +41,21 @@ class MainFocus extends Component {
             onChange={e => this.handleChange(e)}
           />
 
-          <button className="MainFocus-SubmitButton button is-small is-rounded" type="submit" animated>
+          <button
+            className="MainFocus-SubmitButton button is-small is-rounded"
+            type="submit"
+            animated
+          >
             Carpe Diem!
           </button>
         </div>
-        <div className="MainFocus-Display">
-            {this.state.isVisible && (
-              <textarea>{this.state.mainFocusResult}</textarea>
-            )}
-        </div>
+        {this.state.isVisible && (
+          <div className="MainFocus-DisplayDiv">
+            <textarea className="MainFocus-Display textarea">
+              {this.state.mainFocusResult}
+            </textarea>
+          </div>
+        )}
       </form>
     );
   }
