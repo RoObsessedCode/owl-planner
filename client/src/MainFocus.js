@@ -46,7 +46,7 @@ class MainFocus extends Component {
             type="submit"
             animated
           >
-            Carpe Diem!
+             Carpe Diem!
           </button>
         </div>
         {this.state.isVisible && (
