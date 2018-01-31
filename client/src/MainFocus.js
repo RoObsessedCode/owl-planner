@@ -6,24 +6,24 @@ class MainFocus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainFocusInput: "",
-      mainFocusResult: "",
+      mainFocusInput: '',
+      mainFocusResult: '',
       isVisible: false
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
     //set state based on what user types in
-    this.setState({ mainFocusInput: event.target.value });
+    this.setState({ mainFocusInput: event.target.value })
   }
   handleSubmit(event) {
     event.preventDefault();
 
-    this.setState({ mainFocusResult: this.state.mainFocusInput });
-    this.setState({ isVisible: true });
-    this.setState({ mainFocusInput: "" });
+    this.setState({ mainFocusResult: this.state.mainFocusInput })
+    this.setState({ isVisible: true })
+    this.setState({ mainFocusInput: "" })
   }
   // kyle is awesome
   render() {
@@ -51,7 +51,7 @@ class MainFocus extends Component {
         </div>
         {this.state.isVisible && (
           <div className="MainFocus-DisplayDiv">
-            <textarea className="MainFocus-Display textarea">
+            <textarea className="MainFocus-Display textarea" disabled>
               {this.state.mainFocusResult}
             </textarea>
           </div>
