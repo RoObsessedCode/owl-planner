@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-import "./MainFocus.css";
+import './MainFocus.css'
+
+import  BulletinBoard  from './BulletinBoard.js'
 
 class MainFocus extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       mainFocusInput: '',
       mainFocusResult: '',
@@ -19,16 +21,16 @@ class MainFocus extends Component {
     this.setState({ mainFocusInput: event.target.value })
   }
   handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     this.setState({ mainFocusResult: this.state.mainFocusInput })
     this.setState({ isVisible: true })
-    this.setState({ mainFocusInput: "" })
+    this.setState({ mainFocusInput: '' })
   }
-  // kyle is awesome
+  
   render() {
     return (
-      <form className="MainFocus-Form" onSubmit={e => this.handleSubmit(e)}>
+      <form className="MainFocus-Form" onSubmit={evt => this.handleSubmit(evt)}>
         <header className="MainFocus-Header">
           Which of your obsessions will you tackle today?
         </header>
@@ -38,27 +40,24 @@ class MainFocus extends Component {
             rows={1}
             placeholder="Today's Main Focus..."
             value={this.state.mainFocusInput}
-            onChange={e => this.handleChange(e)}
+            onChange={evt => this.handleChange(evt)}
           />
 
           <button
             className="MainFocus-SubmitButton button is-small is-rounded"
             type="submit"
-            animated
+            animated="true"
           >
              Carpe Diem!
           </button>
         </div>
         {this.state.isVisible && (
-          <div className="MainFocus-DisplayDiv">
-            <textarea className="MainFocus-Display textarea" disabled>
-              {this.state.mainFocusResult}
-            </textarea>
-          </div>
+
+          <BulletinBoard mainFocusResult={this.state.mainFocusResult} />
         )}
       </form>
     );
   }
 }
 
-export default MainFocus;
+export default MainFocus
