@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import './MainFocus.css'
 
 import  BulletinBoard  from './BulletinBoard.js'
-
+import  Weather from './Weather.js'
 class MainFocus extends Component {
   constructor(props) {
     super(props)
@@ -27,7 +27,7 @@ class MainFocus extends Component {
     this.setState({ isVisible: true })
     this.setState({ mainFocusInput: '' })
   }
-  
+
   render() {
     return (
       <form className="MainFocus-Form" onSubmit={evt => this.handleSubmit(evt)}>
@@ -51,12 +51,13 @@ class MainFocus extends Component {
              Carpe Diem!
           </button>
         </div>
+        <Weather />
         {this.state.isVisible && (
 
           <BulletinBoard mainFocusResult={this.state.mainFocusResult} />
         )}
       </form>
-    );
+    )
   }
 }
 
