@@ -1,34 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import './MainFocus.css'
+import "./MainFocus.css";
 
-import  BulletinBoard  from './BulletinBoard.js'
-import  Weather from './Weather.js'
 class MainFocus extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       mainFocusInput: '',
       mainFocusResult: '',
-      isVisible: false
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+      userEstablishedMainFocus: false
+
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     //set state based on what user types in
-    this.setState({ mainFocusInput: event.target.value })
+    this.setState({ mainFocusInput: event.target.value });
   }
   handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    this.setState({ mainFocusResult: this.state.mainFocusInput })
-    this.setState({ isVisible: true })
-    this.setState({ mainFocusInput: '' })
+    this.setState({ mainFocusResult: this.state.mainFocusInput });
+    this.setState({ userEstablishedMainFocus: true });
+    this.setState({ mainFocusInput: "" });
+    this.props.tick()
   }
 
-  render() {
+  generateMainFocus() {
     return (
       <form className="MainFocus-Form" onSubmit={evt => this.handleSubmit(evt)}>
         <header className="MainFocus-Header">
@@ -48,16 +48,19 @@ class MainFocus extends Component {
             type="submit"
             animated="true"
           >
-             Carpe Diem!
+            Carpe Diem!
           </button>
         </div>
-        <Weather />
-        {this.state.isVisible && (
-
-          <BulletinBoard mainFocusResult={this.state.mainFocusResult} />
-        )}
       </form>
-    )
+    );
+  }
+
+  render() {
+    if (!this.state.userEstablishedMainFocus) {
+      return this.generateMainFocus()
+    } else {
+      return null
+    }
   }
 }
 

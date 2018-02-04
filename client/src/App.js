@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import owl from './owl.jpg'
 import './App.css';
 import 'bulma/css/bulma.css'
-import MainFocus from './MainFocus'
+import HomePage from './HomePage'
 
 class App extends Component {
   constructor() {
@@ -35,7 +35,7 @@ class App extends Component {
           <img src={owl} className="App-logo" alt="logo" />
           <h1 className="App-title">Obsessed With Life</h1>
         </div>
-        <MainFocus />
+        <HomePage />
 
       </div>
     );
