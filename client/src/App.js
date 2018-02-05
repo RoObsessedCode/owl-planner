@@ -3,6 +3,7 @@ import owl from './owl.jpg'
 import './App.css';
 import 'bulma/css/bulma.css'
 import MainFocus from './MainFocus'
+import StateManager from './StateManager'
 
 class App extends Component {
   constructor() {
@@ -35,7 +36,7 @@ class App extends Component {
           <img src={owl} className="App-logo" alt="logo" />
           <h1 className="App-title">Obsessed With Life</h1>
         </div>
-        <MainFocus />
+        <StateManager />
 
       </div>
     );

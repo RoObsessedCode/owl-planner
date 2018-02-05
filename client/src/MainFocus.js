@@ -1,34 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import './MainFocus.css'
+import "./MainFocus.css";
 
-import  BulletinBoard  from './BulletinBoard.js'
-import  Weather from './Weather.js'
+import BulletinBoard from "./BulletinBoard.js";
+import Weather from "./Weather.js";
 class MainFocus extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      mainFocusInput: '',
-      mainFocusResult: '',
-      isVisible: false
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+      mainFocusInput: "",
+      mainFocusResult: "",
+      hideForm: false
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.generateMainFocusForm = this.generateMainFocusForm.bind(this);
   }
 
   handleChange(event) {
     //set state based on what user types in
-    this.setState({ mainFocusInput: event.target.value })
+    this.setState({ mainFocusInput: event.target.value });
   }
   handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    this.setState({ mainFocusResult: this.state.mainFocusInput })
-    this.setState({ isVisible: true })
-    this.setState({ mainFocusInput: '' })
+    this.setState({ mainFocusResult: this.state.mainFocusInput });
+    this.setState({ mainFocusInput: "" });
+    this.setState({ hideForm: true });
+    this.props.tick();
   }
 
-  render() {
+  generateMainFocusForm() {
     return (
       <form className="MainFocus-Form" onSubmit={evt => this.handleSubmit(evt)}>
         <header className="MainFocus-Header">
@@ -48,17 +50,21 @@ class MainFocus extends Component {
             type="submit"
             animated="true"
           >
-             Carpe Diem!
+            Carpe Diem!
           </button>
         </div>
-        <Weather />
-        {this.state.isVisible && (
-
-          <BulletinBoard mainFocusResult={this.state.mainFocusResult} />
-        )}
       </form>
-    )
+    );
+  }
+
+  render() {
+    if (this.state.hideForm) {
+      return null;
+    } else {
+      return this.generateMainFocusForm();
+    }
+
   }
 }
 
-export default MainFocus
+export default MainFocus;

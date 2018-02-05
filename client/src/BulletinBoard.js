@@ -11,7 +11,7 @@ const BulletinBoard = (props) => {
 }
 
 
-export default BulletinBoard
+export default BulletinBoard;
 
 
  {/* <div className="MainFocus-DisplayDiv">

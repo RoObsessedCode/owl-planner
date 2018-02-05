@@ -1,22 +1,18 @@
-import React from 'react'
-import ReactWeather  from 'react-open-weather'
+import React from "react";
 
-const Weather = () => {
-  return (
-    <div>
-      <ReactWeather
-        forecast="today"
-        apikey="3abb29ddd29045d0ac8165309180102"
-        type="city"
-        city="Manhattan"
-      />
-    </div>
-  )
-}
+const Weather = props => {
+  const {
+    weatherPromptHasBeenAsked,
+    userWantsWeatherDisplay,
+    weatherPrompt,
+    weatherDisplay
+  } = props;
 
-export default Weather
-
-/*
-API Key
-42563abc944d896963ce5e118cd746e4
-*/
+  if (!weatherPromptHasBeenAsked) {
+    return weatherPrompt();
+  }
+  if (weatherPromptHasBeenAsked && userWantsWeatherDisplay) {
+    return weatherDisplay();
+  }
+};
+export default Weather;
