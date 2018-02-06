@@ -14,13 +14,64 @@ class StateManager extends Component {
     this.state = {
       owlSequence: OWLSequence,
       weatherPromptHasBeenAsked: false,
-      userWantsWeatherDisplay: false
+      userWantsWeatherDisplay: false,
+      mainFocusInput: '',
+      mainFocusResult: '',
+      hideForm: false
     };
     this.tickHandler = this.tickHandler.bind(this);
     this.askWeatherPrompt = this.askWeatherPrompt.bind(this);
     this.weatherDisplay = this.weatherDisplay.bind(this);
     this.handleWeatherPrompt = this.handleWeatherPrompt.bind(this);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.generateMainFocusForm = this.generateMainFocusForm.bind(this);
+
   }
+
+  handleChange(event) {
+    //set state based on what user types in
+    this.setState({ mainFocusInput: event.target.value });
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+
+    this.setState({ mainFocusResult: this.state.mainFocusInput });
+    this.setState({ mainFocusInput: "" });
+    this.setState({ hideForm: true });
+    this.tickHandler();
+  }
+
+  generateMainFocusForm() {
+    return (
+      <form className="MainFocus-Form" onSubmit={evt => this.handleSubmit(evt)}>
+        <header className="MainFocus-Header">
+          Which of your obsessions will you tackle today?
+        </header>
+        <div className="MainFocus-Div">
+          <input
+            className="MainFocus-TextArea input"
+            rows={1}
+            placeholder="Today's Main Focus..."
+            value={this.state.mainFocusInput}
+            onChange={evt => this.handleChange(evt)}
+          />
+
+          <button
+            className="MainFocus-SubmitButton button is-small is-rounded"
+            type="submit"
+            animated="true"
+          >
+            Carpe Diem!
+          </button>
+        </div>
+      </form>
+    );
+  }
+
+
+
 
   tickHandler() {
     let owlSequence = this.state.owlSequence;
@@ -79,6 +130,10 @@ class StateManager extends Component {
           userWantsWeatherDisplay={this.state.userWantsWeatherDisplay}
           weatherPrompt={this.askWeatherPrompt}
           weatherDisplay={this.weatherDisplay}
+          mainFocusForm={this.generateMainFocusForm}
+          hideForm={this.state.hideForm}
+          mainFocusResult={this.state.mainFocusResult}
+
         />
         <BulletinBoard
           weatherPromptHasBeenAsked={this.state.weatherPromptHasBeenAsked}

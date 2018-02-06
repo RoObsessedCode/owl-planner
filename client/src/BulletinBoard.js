@@ -4,12 +4,19 @@ const BulletinBoard = props => {
   const {
     weatherPromptHasBeenAsked,
     userWantsWeatherDisplay,
-    weatherDisplay
+    weatherDisplay,
+    mainFocusResult
   } = props;
 
   const renderWeather = weatherPromptHasBeenAsked && userWantsWeatherDisplay;
 
-  return <div>{renderWeather && weatherDisplay()}</div>;
+  return (
+    <div>
+      <div>{renderWeather && weatherDisplay()}</div>
+      <div>{mainFocusResult}</div>
+
+    </div>
+  );
 };
 
 export default BulletinBoard;

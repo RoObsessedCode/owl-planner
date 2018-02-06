@@ -4,67 +4,78 @@ import "./MainFocus.css";
 
 import BulletinBoard from "./BulletinBoard.js";
 import Weather from "./Weather.js";
-class MainFocus extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mainFocusInput: "",
-      mainFocusResult: "",
-      hideForm: false
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.generateMainFocusForm = this.generateMainFocusForm.bind(this);
+
+const MainFocus = props => {
+  const { hideForm, mainFocusForm, tick} = props;
+
+  if (hideForm) {
+    return null;
+  } else {
+    return mainFocusForm();
   }
+};
 
-  handleChange(event) {
-    //set state based on what user types in
-    this.setState({ mainFocusInput: event.target.value });
-  }
-  handleSubmit(event) {
-    event.preventDefault();
+// class MainFocus extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       mainFocusInput: "",
+//       mainFocusResult: "",
+//       hideForm: false
+//     };
+//     this.handleChange = this.handleChange.bind(this);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.generateMainFocusForm = this.generateMainFocusForm.bind(this);
+//   }
 
-    this.setState({ mainFocusResult: this.state.mainFocusInput });
-    this.setState({ mainFocusInput: "" });
-    this.setState({ hideForm: true });
-    this.props.tick();
-  }
+//   handleChange(event) {
+//     //set state based on what user types in
+//     this.setState({ mainFocusInput: event.target.value });
+//   }
+//   handleSubmit(event) {
+//     event.preventDefault();
 
-  generateMainFocusForm() {
-    return (
-      <form className="MainFocus-Form" onSubmit={evt => this.handleSubmit(evt)}>
-        <header className="MainFocus-Header">
-          Which of your obsessions will you tackle today?
-        </header>
-        <div className="MainFocus-Div">
-          <input
-            className="MainFocus-TextArea input"
-            rows={1}
-            placeholder="Today's Main Focus..."
-            value={this.state.mainFocusInput}
-            onChange={evt => this.handleChange(evt)}
-          />
+//     this.setState({ mainFocusResult: this.state.mainFocusInput });
+//     this.setState({ mainFocusInput: "" });
+//     this.setState({ hideForm: true });
+//     this.props.tick();
+//   }
 
-          <button
-            className="MainFocus-SubmitButton button is-small is-rounded"
-            type="submit"
-            animated="true"
-          >
-            Carpe Diem!
-          </button>
-        </div>
-      </form>
-    );
-  }
+//   generateMainFocusForm() {
+//     return (
+//       <form className="MainFocus-Form" onSubmit={evt => this.handleSubmit(evt)}>
+//         <header className="MainFocus-Header">
+//           Which of your obsessions will you tackle today?
+//         </header>
+//         <div className="MainFocus-Div">
+//           <input
+//             className="MainFocus-TextArea input"
+//             rows={1}
+//             placeholder="Today's Main Focus..."
+//             value={this.state.mainFocusInput}
+//             onChange={evt => this.handleChange(evt)}
+//           />
 
-  render() {
-    if (this.state.hideForm) {
-      return null;
-    } else {
-      return this.generateMainFocusForm();
-    }
+//           <button
+//             className="MainFocus-SubmitButton button is-small is-rounded"
+//             type="submit"
+//             animated="true"
+//           >
+//             Carpe Diem!
+//           </button>
+//         </div>
+//       </form>
+//     );
+//   }
 
-  }
-}
+//   render() {
+//     if (this.state.hideForm) {
+//       return null;
+//     } else {
+//       return this.generateMainFocusForm();
+//     }
+
+//   }
+// }
 
 export default MainFocus;
