@@ -46,8 +46,10 @@ class StateManager extends Component {
 
   handleWeatherPrompt(event) {
     event.preventDefault();
-    this.setState({ weatherPromptHasBeenAsked: true, userWantsWeatherDisplay: event.target.name === 'Yes'});
-
+    this.setState({
+      weatherPromptHasBeenAsked: true,
+      userWantsWeatherDisplay: event.target.name === "Yes"
+    });
   }
 
   askWeatherPrompt() {
@@ -76,6 +78,11 @@ class StateManager extends Component {
           weatherPromptHasBeenAsked={this.state.weatherPromptHasBeenAsked}
           userWantsWeatherDisplay={this.state.userWantsWeatherDisplay}
           weatherPrompt={this.askWeatherPrompt}
+          weatherDisplay={this.weatherDisplay}
+        />
+        <BulletinBoard
+          weatherPromptHasBeenAsked={this.state.weatherPromptHasBeenAsked}
+          userWantsWeatherDisplay={this.state.userWantsWeatherDisplay}
           weatherDisplay={this.weatherDisplay}
 
         />

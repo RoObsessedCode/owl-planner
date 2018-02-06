@@ -10,9 +10,9 @@ const Weather = props => {
 
   if (!weatherPromptHasBeenAsked) {
     return weatherPrompt();
+  } else {
+    return null;
   }
-  if (weatherPromptHasBeenAsked && userWantsWeatherDisplay) {
-    return weatherDisplay();
-  }
+
 };
 export default Weather;
