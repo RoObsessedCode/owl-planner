@@ -5,15 +5,23 @@ const BulletinBoard = props => {
     weatherPromptHasBeenAsked,
     userWantsWeatherDisplay,
     weatherDisplay,
+    hideForm,
     mainFocusResult
   } = props;
 
   const renderWeather = weatherPromptHasBeenAsked && userWantsWeatherDisplay;
 
+  console.log('Result:  ', mainFocusResult)
+    let mainFocus = <div>{mainFocusResult}</div>;
+
   return (
     <div>
       <div>{renderWeather && weatherDisplay()}</div>
-      <div>{mainFocusResult}</div>
+      <div>
+        {
+          mainFocusResult
+        }
+      </div>
 
     </div>
   );

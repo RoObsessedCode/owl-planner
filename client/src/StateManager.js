@@ -139,7 +139,7 @@ class StateManager extends Component {
           weatherPromptHasBeenAsked={this.state.weatherPromptHasBeenAsked}
           userWantsWeatherDisplay={this.state.userWantsWeatherDisplay}
           weatherDisplay={this.weatherDisplay}
-
+          mainFocusResult={this.state.mainFocusResult}
         />
       </div>
     );
