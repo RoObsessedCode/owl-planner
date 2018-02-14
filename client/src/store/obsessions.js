@@ -14,7 +14,7 @@ export const fetchAllObsessions = () =>
 
 
 export default function (obsessions = [], action) {
-  switch(action.type) {
+  switch (action.type) {
     case GET_ALL_OBSESSIONS:
       return action.obsessions;
     default:
