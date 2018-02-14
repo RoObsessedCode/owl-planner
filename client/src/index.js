@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import store from './store'
-import 'bulma'
+import store from './store';
+import Routes from './routes';
+import 'bulma';
 import './index.css';
 
-import App from './App';
+
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={store} >
-    <App />
+    <Routes />
   </Provider>,
 document.getElementById('root')
 );

@@ -1,3 +1,4 @@
 const Priority = require('./priority');
+const Obsession = require('./obsession');
 
-module.exports =  {Priority}
+module.exports =  {Priority, Obsession};

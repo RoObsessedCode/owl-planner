@@ -19,7 +19,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // auth and api routes
-app.use('/api/priority', require('./api/priority'))
+//app.use('/api/priority', require('./api/priority'))
+app.use('/api', require('./api'))
 
 //Fill em in ^^
 
