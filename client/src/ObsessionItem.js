@@ -7,7 +7,8 @@ const ObsessionItem = (props) => {
   const {obsession} = props;
   return (
     <div className="ObsessionItem-Card">
-      <div>{obsession.name}</div>
+      <div className="ObsessionItem-Name" >{obsession.name}</div>
+      <hr></hr>
       <div>{obsession.description}</div>
       <div>{obsession.purpose}</div>
 
