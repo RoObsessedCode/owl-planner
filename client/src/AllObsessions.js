@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "./AllObsessions.css";
+import ObsessionItem from "./ObsessionItem"
 import { fetchAllObsessions } from "./store";
 
 //const obsessionArr = ['joggin', 'side project', 'eating well', 'family']
@@ -21,21 +22,17 @@ class AllObsessions extends Component {
   }
 
   render() {
-    const { allObsessions } = this.props;
+
+
+    const allObsessions = this.props.allObsessions.map((obsession) => {
+      return <ObsessionItem key={obsession.id} obsession={obsession} />
+    })
+
     return (
       <div className="ObsessionContainer">
-        <label className="ObsessionLabel">Obsessions</label>
-        {allObsessions &&
-          allObsessions.map(obsession => (
-            <div key={obsession.id} className="ObsessionItem">
-              <div  >
-                {obsession.name}
-              </div>
-              <div>{obsession.purpose}</div>
-            </div>
-          ))}
+        {allObsessions}
       </div>
-    );
+    )
   }
 }
 
