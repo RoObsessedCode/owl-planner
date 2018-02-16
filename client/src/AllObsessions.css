@@ -1,0 +1,15 @@
+
+
+.ObsessionContainer {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.ObsessionItem {
+  align-self: bottom
+}
+
+.ObsessionLabel {
+
+}

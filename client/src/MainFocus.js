@@ -44,7 +44,7 @@ class MainFocus extends Component {
           <button
             className="MainFocus-SubmitButton button is-small is-rounded"
             type="submit"
-            animated
+
           >
              Carpe Diem!
           </button>

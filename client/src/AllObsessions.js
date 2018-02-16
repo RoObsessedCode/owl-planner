@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import {fetchAllObsessions} from './store'
+import "./AllObsessions.css";
+import { fetchAllObsessions } from "./store";
 
 //const obsessionArr = ['joggin', 'side project', 'eating well', 'family']
 
@@ -15,19 +16,22 @@ import {fetchAllObsessions} from './store'
 // };
 
 class AllObsessions extends Component {
-
-
   componentDidMount() {
     this.props.loadObsessions();
   }
 
   render() {
-    const {allObsessions} = this.props;
+    const { allObsessions } = this.props;
     return (
-      allObsessions &&
-      allObsessions.map((obsession) => {
-        return <div key={obsession.id}>{obsession.name}</div>;
-      })
+      <div>
+        <label>Obsessions</label>
+        {allObsessions &&
+          allObsessions.map(obsession => (
+            <div key={obsession.id}>
+              <div className="ObsessionContainer">{obsession.name}</div>
+            </div>
+          ))}
+      </div>
     );
   }
 }
@@ -43,7 +47,7 @@ const mapDispatchToProps = dispatch => {
     loadObsessions() {
       dispatch(fetchAllObsessions());
     }
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllObsessions);

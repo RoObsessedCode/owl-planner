@@ -38,8 +38,7 @@ class App extends Component {
             <button>Obsessions</button>
           </Link>
         </div>
-        <MainFocus />
-        {this.props.children}
+        <div >{this.props.children}</div>
       </div>
     );
   }

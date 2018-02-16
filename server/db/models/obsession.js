@@ -8,6 +8,9 @@ const Obsession = db.define('obsession', {
   },
   description: {
     type: Sequelize.TEXT
+  },
+  purpose: {
+    type: Sequelize.TEXT
   }
 });
 

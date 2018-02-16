@@ -1,4 +1,5 @@
 const Priority = require('./priority');
 const Obsession = require('./obsession');
+const db = require('../db');
 
-module.exports =  {Priority, Obsession};
+module.exports =  {db, Priority, Obsession};

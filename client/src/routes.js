@@ -7,21 +7,27 @@ import history from './history'
 
 
 import App from "./App";
-import AllObsessions from './AllObsessions'
+import MainFocus from "./MainFocus";
+import AllObsessions from './AllObsessions';
+
+/*
+One idea: the way boiler maker does it is that Router has one
+child component: Main or App and that component is responsible for rendering
+navbar or sidebar or whatever components are static and also it renders
+props.children - kabeesh
+*/
 
 export default class Routes extends Component {
   render() {
     return (
       <Router history={history}>
-
+        <App>
           <Switch>
-            {/* Routes placed here are available to all visitors */}
-            {/* <Route exact path="/" component={AllProducts} /> */}
 
-            <Route path='/ao' component={AllObsessions} />
-            <Route path='/' component={App} />
+            <Route exact path='/ao' component={AllObsessions} />
+            <Route component={MainFocus} />
           </Switch>
-
+        </App>
       </Router>
     );
   }
