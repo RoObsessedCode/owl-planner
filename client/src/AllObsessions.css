@@ -3,13 +3,17 @@
 .ObsessionContainer {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  height: 80vh;
 
 }
 
 .ObsessionItem {
-  align-self: bottom
+  align-self: bottom;
+  flex-grow: 2;
 }
 
 .ObsessionLabel {
-
+  text-decoration: underline;
+  flex-grow: 1;
 }

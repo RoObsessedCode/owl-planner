@@ -23,12 +23,15 @@ class AllObsessions extends Component {
   render() {
     const { allObsessions } = this.props;
     return (
-      <div>
-        <label>Obsessions</label>
+      <div className="ObsessionContainer">
+        <label className="ObsessionLabel">Obsessions</label>
         {allObsessions &&
           allObsessions.map(obsession => (
-            <div key={obsession.id}>
-              <div className="ObsessionContainer">{obsession.name}</div>
+            <div key={obsession.id} className="ObsessionItem">
+              <div  >
+                {obsession.name}
+              </div>
+              <div>{obsession.purpose}</div>
             </div>
           ))}
       </div>
