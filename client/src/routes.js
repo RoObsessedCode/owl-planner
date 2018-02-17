@@ -9,6 +9,7 @@ import history from './history'
 import App from "./App";
 import MainFocus from "./MainFocus";
 import AllObsessions from './AllObsessions';
+import AddNewObsession from './AddNewObsession';
 
 /*
 One idea: the way boiler maker does it is that Router has one
@@ -24,8 +25,8 @@ export default class Routes extends Component {
         <App>
           <Switch>
 
-            <Route exact path='/ao' component={AllObsessions} />
-            {/* <Route path='/AddNewObsession' component={AddNewObsession}/> */}
+            <Route path='/ao' component={AllObsessions} />
+            <Route path='/AddNewObsession' component={AddNewObsession} />
             <Route component={MainFocus} />
           </Switch>
         </App>

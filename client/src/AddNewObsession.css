@@ -1,0 +1,9 @@
+
+.AddNewObsession-Form {
+  height: 50vh;
+  width: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+

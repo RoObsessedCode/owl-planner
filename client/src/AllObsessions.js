@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
 import "./AllObsessions.css";
@@ -21,7 +22,10 @@ class AllObsessions extends Component {
 
     return (
       <div className="ObsessionContainer">
-        <button style={{fontSize: "x-large"}}>+</button>
+        <Link to='/AddNewObsession'>
+          <button style={{ fontSize: "x-large" }}>+</button>
+        </Link>
+
         {allObsessions}
       </div>
     )
