@@ -8,10 +8,13 @@
   overflow: auto;
   border: 1px solid #e5e5df;
   border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.25);
 }
 
 .ObsessionItem-Name {
   font-family: 'Indie Flower', cursive;
-  font-size: 'x-large';
+  text-shadow: 2px 2px 5px red;
+  /* font-size: 'x-large'; */
+
+  font-size: 23px;
 }

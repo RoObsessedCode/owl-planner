@@ -5,6 +5,7 @@ import './ObsessionItem.css';
 
 const ObsessionItem = (props) => {
   const {obsession} = props;
+  console.log('KEEEEEY ---> ', props)
   return (
     <div className="ObsessionItem-Card">
       <div className="ObsessionItem-Name" >{obsession.name}</div>

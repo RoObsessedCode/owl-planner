@@ -5,16 +5,7 @@ import "./AllObsessions.css";
 import ObsessionItem from "./ObsessionItem"
 import { fetchAllObsessions } from "./store";
 
-//const obsessionArr = ['joggin', 'side project', 'eating well', 'family']
 
-// const AllObsessions = ({ allObsessions }) => {
-//   return (
-//     allObsessions &&
-//     allObsessions.map((obsession, i) => {
-//       return <div key={i}>{obsession}</div>;
-//     })
-//   );
-// };
 
 class AllObsessions extends Component {
   componentDidMount() {
@@ -30,6 +21,7 @@ class AllObsessions extends Component {
 
     return (
       <div className="ObsessionContainer">
+        <button style={{fontSize: "x-large"}}>+</button>
         {allObsessions}
       </div>
     )

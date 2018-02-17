@@ -25,6 +25,7 @@ export default class Routes extends Component {
           <Switch>
 
             <Route exact path='/ao' component={AllObsessions} />
+            {/* <Route path='/AddNewObsession' component={AddNewObsession}/> */}
             <Route component={MainFocus} />
           </Switch>
         </App>
