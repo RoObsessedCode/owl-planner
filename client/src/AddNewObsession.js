@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 
-import './AddNewObsession';
+import './AddNewObsession.css';
 import { postNewObsession } from "./store";
 
 class AddNewObsession extends Component {
@@ -17,7 +17,7 @@ class AddNewObsession extends Component {
   }
 
   handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   submitForm(event) {
@@ -29,25 +29,35 @@ class AddNewObsession extends Component {
     };
 
     this.props.handleSubmit(obsession);
-    this.setState({name: '', description: '', purpose: ''});
+    this.setState({ name: '', description: '', purpose: '' });
   }
 
   render() {
     return (
       <form className="AddNewObsession-Form" onSubmit={this.submitForm}>
-        <label >
+
+        <label style={{alignSelf: 'auto'}}className="AddNewObsession-Child">
           Name:
-          <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+
+          <input className="AddNewObsession-Input" type="text" name="name" value={this.state.name} onChange={this.handleChange} />
         </label>
-        <label >
+
+
+        <label className="AddNewObsession-Child" >
           Description:
-          <input type="text" placeholder="Provide details" name="description" value={this.state.description} onChange={this.handleChange} />
+
+          <textarea rows="3" className="AddNewObsession-Input" type="text" placeholder="Provide details" name="description" value={this.state.description} onChange={this.handleChange} />
         </label>
-        <label >
+
+
+
+        <label className="AddNewObsession-Child">
           Purpose:
-          <input type="text" placeholder="Why is this life obsession important to you?" name="purpose" value={this.state.purpose} onChange={this.handleChange} />
+
+          <textarea rows="3" className="AddNewObsession-Input" type="text" placeholder="Why is this life obsession important to you?" name="purpose" value={this.state.purpose} onChange={this.handleChange} />
         </label>
-        <button type="submit">Submit</button>
+
+        <button className="AddNewObsession-Submit" type="submit">Submit</button>
 
       </form>
     )
