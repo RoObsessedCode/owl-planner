@@ -1,6 +1,7 @@
 .ObsessionItem-Card {
+  /* position: relative;
+  z-index: 1; */
   position: relative;
-  z-index: 1;
   background: #DEF4C6;
   width: 40%;
   padding: 10px 10px 10px 15px;
@@ -9,6 +10,7 @@
   border: 1px solid #e5e5df;
   border-radius: 3px;
   box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.25);
+
 }
 
 .ObsessionItem-Name {
@@ -17,4 +19,12 @@
   /* font-size: 'x-large'; */
 
   font-size: 23px;
+}
+
+.ObsessionItem-Delete {
+  position: absolute;
+  left: 1em;
+
+
+
 }
