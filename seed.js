@@ -4,7 +4,8 @@
 const Promise = require("bluebird");
 const {
   db,
-  Obsession
+  Obsession,
+  Goal
 } = require('./server/db/models');
 
 const obsessionData = [
@@ -30,6 +31,27 @@ const obsessionData = [
   }
 ];
 
+const goalData = [
+  {
+    name: 'Compete at salsa dance competition',
+    description: 'Test out my practiced salsa dance skills',
+    term: '3-month',
+    obsessionId: 1
+  },
+  {
+    name: 'Weigh in at 200lbs',
+    description: 'Work out and eat right to eventually reach goal weight',
+    term: '1-year',
+    obsessionId: 3
+  },
+  {
+    name: 'Be a speaker at Brooklyn.js',
+    description: 'Be passionate about material and practice to the point you can present it at a meetup event',
+    term: '3-month',
+    obsessionId: 4
+  }
+]
+
 
 // Campus Seeding
 const promiseArrObsessions = () => {
@@ -44,12 +66,35 @@ const createObsessions = () => {
   });
 };
 
+const promiseArrGoals = () => {
+  return goalData.map(goal =>  {
+    return Goal.build(goal);
+  });
+};
+
+const createGoals = () => {
+  return Promise.map(promiseArrGoals(), function (goal) {
+    return goal.save();
+  });
+};
+
+// const seed = () => {
+//   return createObsessions()
+//     .then(() => {
+//       console.log('obsessions created');
+//     })
+//     .then(() => {
+//       return createGoals();
+//     })
+//     .then(() => {
+//       console.log('goals created');
+//     })
+// };
+
 const seed = () => {
   return createObsessions()
-    .then(function() {
-      console.log('obsessions created')
-    });
-};
+    .then(() => createGoals());
+}
 
 db.sync({ force: true })
   .then(function () {
