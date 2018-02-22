@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import "./AllObsessions.css";
 import ObsessionItem from "./ObsessionItem"
-import { fetchAllObsessions, removeObsession } from "./store";
+import { fetchAllObsessions, removeObsession, fetchGoalsForObsession } from "./store";
 
 
 
@@ -17,7 +17,7 @@ class AllObsessions extends Component {
 
 
     const allObsessions = this.props.allObsessions.map((obsession) => {
-      return <ObsessionItem key={obsession.id} obsession={obsession} removeObsession={this.props.removeObsession} />
+      return <ObsessionItem key={obsession.id} obsession={obsession} removeObsession={this.props.removeObsession} loadGoals={this.props.loadGoals} />
     })
 
     return (
@@ -45,6 +45,9 @@ const mapDispatchToProps = dispatch => {
     },
     removeObsession(obsession) {
       dispatch(removeObsession(obsession))
+    },
+    loadGoals(obsession) {
+      dispatch(fetchGoalsForObsession(obsession))
     }
   };
 };

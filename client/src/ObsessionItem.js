@@ -5,17 +5,19 @@ import { Link } from 'react-router-dom'
 import './ObsessionItem.css';
 
 const ObsessionItem = (props) => {
-  const {obsession, removeObsession} = props;
+  const { obsession, removeObsession } = props;
   console.log('KEEEEEY ---> ', props)
   return (
-    <Link to={`/obsession/${obsession.id}/goals`} className="ObsessionItem-Card">
+    <div className="ObsessionItem-Card">
       <button className="ObsessionItem-Delete" onClick={() => removeObsession(obsession)}>X</button>
-      <div className="ObsessionItem-Name" >{obsession.name}</div>
+
+      <div onClick={() => props.loadGoals(obsession)} className="ObsessionItem-Name" >{obsession.name}</div>
+
       <hr></hr>
       <div>{obsession.description}</div>
       <div>{obsession.purpose}</div>
 
-    </Link>
+    </div>
   )
 }
 
