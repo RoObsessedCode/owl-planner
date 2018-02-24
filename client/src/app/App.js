@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import owl from "./owl.jpg";
 import "./App.css";
-import "bulma/css/bulma.css";
-import MainFocus from "./MainFocus";
 
 class App extends Component {
   constructor() {

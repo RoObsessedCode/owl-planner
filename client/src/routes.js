@@ -6,8 +6,8 @@ import history from './history'
 //import PropTypes from "prop-types";
 
 
-import App from "./App";
-import MainFocus from "./MainFocus";
+import App from "./app/App.js";
+import MainFocus from "./homePage/MainFocus";
 import AllObsessions from './obsessions/AllObsessions';
 import AddNewObsession from './obsessions/AddNewObsession';
 import Goals from './goals/Goals';
