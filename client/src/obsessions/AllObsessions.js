@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import "./AllObsessions.css";
 import ObsessionItem from "./ObsessionItem"
-import { fetchAllObsessions, removeObsession, fetchGoalsForObsession } from "./store";
+import { fetchAllObsessions, removeObsession, fetchGoalsForObsession } from "../store";
 
 
 

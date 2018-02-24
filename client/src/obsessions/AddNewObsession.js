@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 import './AddNewObsession.css';
-import { postNewObsession } from "./store";
+import { postNewObsession } from "../store";
 
 class AddNewObsession extends Component {
   constructor(props) {

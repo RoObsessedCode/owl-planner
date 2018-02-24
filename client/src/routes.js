@@ -8,9 +8,9 @@ import history from './history'
 
 import App from "./App";
 import MainFocus from "./MainFocus";
-import AllObsessions from './AllObsessions';
-import AddNewObsession from './AddNewObsession';
-import Goals from './Goals';
+import AllObsessions from './obsessions/AllObsessions';
+import AddNewObsession from './obsessions/AddNewObsession';
+import Goals from './goals/Goals';
 
 /*
 One idea: the way boiler maker does it is that Router has one
