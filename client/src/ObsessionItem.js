@@ -13,7 +13,7 @@ const ObsessionItem = (props) => {
 
       <div onClick={() => props.loadGoals(obsession)} className="ObsessionItem-Name" >{obsession.name}</div>
 
-      <hr></hr>
+      <hr />
       <div>{obsession.description}</div>
       <div>{obsession.purpose}</div>
 

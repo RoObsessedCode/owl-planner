@@ -49,6 +49,12 @@ const goalData = [
     description: 'Be passionate about material and practice to the point you can present it at a meetup event',
     term: '3-month',
     obsessionId: 4
+  },
+  {
+    name: '6-pack abs lets gooo',
+    description: 'maybe even 8-packs',
+    term: '1-year',
+    obsessionId: 3
   }
 ]
 

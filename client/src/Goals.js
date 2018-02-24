@@ -8,22 +8,40 @@ class Goals extends Component {
 
   render() {
 
-    console.log('GOALS ---> ', this.props.goals)
+    let obsession = null;
+
     const allGoals = this.props.goals.map((goal) => {
+
       return <GoalItem key={goal.id} goal={goal} />
-    })
-    console.log('all Goals --->', allGoals)
+    });
+    console.log('LENGTHHH', this.props.goals.length)
+    if (this.props.goals.length) {
+      obsession = this.props.obsessions.find(ob => ob.id === this.props.goals[0].obsessionId);
+    }
+
+    console.log('obsession BRO: ', obsession)
+
     return (
       <div>
+        {this.props.goals.length ?
+          <div className="GoalItem-Card">
+            <div>{obsession.name}</div>
+            <div>{obsession.description}</div>
+            <div>{obsession.purpose}</div>
+
+          </div>
+          : null
+        }
         {allGoals}
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    goals: state.goals
+    goals: state.goals,
+    obsessions: state.obsessions
   };
 };
 
