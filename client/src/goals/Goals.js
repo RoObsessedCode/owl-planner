@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import './GoalItem.css';
+import './Goals.css';
 import GoalItem from './GoalItem';
+import ObsessionItem from '../obsessions/ObsessionItem';
 
 class Goals extends Component {
 
@@ -19,19 +23,22 @@ class Goals extends Component {
       obsession = this.props.obsessions.find(ob => ob.id === this.props.goals[0].obsessionId);
     }
 
-    console.log('obsession BRO: ', obsession)
 
     return (
-      <div>
+      <div className="Goals-HeadDiv">
         {this.props.goals.length ?
-          <div className="GoalItem-Card">
-            <div>{obsession.name}</div>
-            <div>{obsession.description}</div>
-            <div>{obsession.purpose}</div>
-
-          </div>
+          <ObsessionItem obsession={obsession} />
           : null
         }
+        {
+          this.props.goals.length ?
+            <Link to='/AddNewGoal'>
+              <button>Add Goal</button>
+            </Link>
+            :
+            null
+        }
+
         {allGoals}
       </div>
     );

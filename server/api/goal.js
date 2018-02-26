@@ -29,3 +29,14 @@ router.get('/', (req, res, next) => {
     .catch(next);
 })
 
+router.post('/:obsessionId', (req, res, next) => {
+  req.body.obsessionId = req.params.obsessionId;
+  console.log('BODY ANTHEM -->', req.body)
+
+  Goal.create(req.body)
+    .then(newGoal => {
+      newGoal.obsessionId = req.params.obsessionId;
+      res.json(newGoal);
+    })
+    .catch(next);
+});

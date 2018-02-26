@@ -10,6 +10,7 @@ import App from "./app/App.js";
 import MainFocus from "./homePage/MainFocus";
 import AllObsessions from './obsessions/AllObsessions';
 import AddNewObsession from './obsessions/AddNewObsession';
+import AddNewGoal from './goals/AddNewGoal';
 import Goals from './goals/Goals';
 
 /*
@@ -28,6 +29,7 @@ export default class Routes extends Component {
 
             <Route path='/ao' component={AllObsessions} />
             <Route path='/obsession/:id/goals' component={Goals} />
+            <Route path='/AddNewGoal' component={AddNewGoal} />
             <Route path='/AddNewObsession' component={AddNewObsession} />
             <Route component={MainFocus} />
           </Switch>
