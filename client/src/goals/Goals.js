@@ -32,7 +32,7 @@ class Goals extends Component {
         }
         {
           this.props.goals.length ?
-            <Link to='/AddNewGoal'>
+            <Link to={`/${obsession.id}/AddNewGoal`}>
               <button>Add Goal</button>
             </Link>
             :
