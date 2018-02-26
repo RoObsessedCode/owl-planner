@@ -3,7 +3,7 @@ import history from '../history';
 
 const GET_ALL_OBSESSIONS = 'GET_ALL_OBSESSIONS';
 const ADD_NEW_OBSESSION = 'ADD_NEW_OBSESSION';
-const DELETE_OBSESSION = 'DELETE_OBSESSION'
+const DELETE_OBSESSION = 'DELETE_OBSESSION';
 
 const gotAllObsessions = obsessions => ({ type: GET_ALL_OBSESSIONS, obsessions });
 const createdObsession = obsession => ({ type: ADD_NEW_OBSESSION, obsession});

@@ -69,7 +69,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleSubmit: (newObsession) => {
       dispatch(postNewObsession(newObsession))
-      console.log('HIS VERY OWN -->', ownProps)
       ownProps.history.push('/ao');
     }
   }

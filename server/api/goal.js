@@ -3,6 +3,17 @@ const { Goal } = require('../db/models');
 module.exports = router;
 
 
+
+router.param('id', (req, res, next, id) => {
+  Goal.findById(id)
+    .then(goal => {
+      if (!goal) res.sendStatus(404);
+      req.goal = goal;
+      next();
+    })
+    .catch(next);
+})
+
 router.get('/:obsessionId', (req, res, next) => {
   return Goal.findAll({
     where: {
@@ -31,12 +42,16 @@ router.get('/', (req, res, next) => {
 
 router.post('/:obsessionId', (req, res, next) => {
   req.body.obsessionId = req.params.obsessionId;
-  console.log('BODY ANTHEM -->', req.body)
-
   Goal.create(req.body)
     .then(newGoal => {
       newGoal.obsessionId = req.params.obsessionId;
       res.json(newGoal);
     })
+    .catch(next);
+});
+
+router.delete('/:id', (req, res, next) => {
+  req.goal.destroy()
+    .then(() => res.status(204).end())
     .catch(next);
 });

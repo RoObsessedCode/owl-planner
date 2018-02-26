@@ -3,10 +3,12 @@ import history from '../history';
 
 const GET_GOALS_FOR_OBSESSION = 'GET_GOALS_FOR_OBSESSION';
 const ADD_NEW_GOAL = 'ADD_NEW_GOAL';
+const DELETE_GOAL = 'DELETE_GOAL';
 
 
 const getGoals = goals => ({ type: GET_GOALS_FOR_OBSESSION, goals });
 const createdGoal = goal => ({ type: ADD_NEW_GOAL, goal});
+const deletedGoal = goal => ({ type: DELETE_GOAL, goal});
 
 
 export const fetchGoalsForObsession = (obsession) =>
@@ -14,7 +16,6 @@ export const fetchGoalsForObsession = (obsession) =>
     axios.get(`/api/goal/${obsession.id}`)
       .then(res => res.data)
       .then(goals => {
-        console.log('thunk goals!', goals)
         dispatch(getGoals(goals));
         history.push(`/obsession/${obsession.id}/goals`);
 
@@ -29,12 +30,23 @@ export const postNewGoal = (goal, obsessionId) =>
       .then(newGoal => dispatch(createdGoal(newGoal)))
       .catch(err => console.log(err));
 
+export const removeGoal = (goal, obsessionId) =>
+  dispatch =>
+    axios.delete(`/api/goal/${goal.id}`)
+      .then(() => {
+        history.push(`/obsession/${obsessionId}/goals`);
+        dispatch(deletedGoal(goal));
+      })
+      .catch(err => console.error(err));
+
 export default function (goals = [], action) {
   switch (action.type) {
     case GET_GOALS_FOR_OBSESSION:
       return action.goals;
     case ADD_NEW_GOAL:
       return goals.concat(action.goal);
+    case DELETE_GOAL:
+      return goals.filter((goal) => goal.id !== action.goal.id);
     default:
       return goals;
   }

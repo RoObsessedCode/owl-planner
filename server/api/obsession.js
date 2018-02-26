@@ -35,5 +35,5 @@ router.post("/", (req, res, next) => {
 router.delete("/:id", (req, res, next) => {
   req.obsession.destroy()
     .then(() => res.status(204).end())
-    .catch(next)
-})
+    .catch(next);
+});

@@ -6,17 +6,18 @@ import './GoalItem.css';
 import './Goals.css';
 import GoalItem from './GoalItem';
 import ObsessionItem from '../obsessions/ObsessionItem';
+import { removeGoal } from '../store';
 
 class Goals extends Component {
 
 
   render() {
-
+    console.log('Michael Jackson', this.props)
     let obsession = null;
 
     const allGoals = this.props.goals.map((goal) => {
 
-      return <GoalItem key={goal.id} goal={goal} />
+      return <GoalItem key={goal.id} goal={goal} obsessionId={this.props.match.params.id} removeGoal={this.props.removeGoal} />
     });
     console.log('LENGTHHH', this.props.goals.length)
     if (this.props.goals.length) {
@@ -52,4 +53,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(Goals);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeGoal(goal) {
+      dispatch(removeGoal(goal))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Goals);
