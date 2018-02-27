@@ -8,6 +8,7 @@ const GoalItem = (props) => {
     <div className="GoalItem-Card">
       <button className="GoalItem-Delete" onClick={() => removeGoal(goal, obsessionId)} >X</button>
       <div>{goal.name}</div>
+      <hr />
       <div>{goal.description}</div>
       <div>{goal.term}</div>
     </div>
