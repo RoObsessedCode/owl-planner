@@ -31,6 +31,8 @@ export default function(actions = [], action) {
   switch (action.type) {
     case GET_ACTIONS_FOR_GOAL:
       return action.actions;
+    case ADD_NEW_ACTION:
+      return actions.concat(action.action);
     default:
       return actions;
   }
