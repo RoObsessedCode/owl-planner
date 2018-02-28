@@ -6,12 +6,14 @@ import history from './history'
 //import PropTypes from "prop-types";
 
 
-import App from "./app/App.js";
-import MainFocus from "./homePage/MainFocus";
+import App from './app/App.js';
+import MainFocus from './homePage/MainFocus';
 import AllObsessions from './obsessions/AllObsessions';
 import AddNewObsession from './obsessions/AddNewObsession';
 import AddNewGoal from './goals/AddNewGoal';
+import AddNewAction from './actions/AddNewAction';
 import Goals from './goals/Goals';
+import Actions from './actions/Actions';
 
 /*
 One idea: the way boiler maker does it is that Router has one
@@ -29,6 +31,8 @@ export default class Routes extends Component {
 
             <Route path='/ao' component={AllObsessions} />
             <Route path='/obsession/:id/goals' component={Goals} />
+            <Route path='/goal/:id/actions' component={Actions} />
+             <Route path='/:id/AddNewAction' component={AddNewAction} />
             <Route path='/:id/AddNewGoal' component={AddNewGoal} />
             <Route path='/AddNewObsession' component={AddNewObsession} />
             <Route component={MainFocus} />

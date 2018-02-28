@@ -6,17 +6,17 @@ const ADD_NEW_GOAL = 'ADD_NEW_GOAL';
 const DELETE_GOAL = 'DELETE_GOAL';
 
 
-const getGoals = goals => ({ type: GET_GOALS_FOR_OBSESSION, goals });
+const gotGoals = goals => ({ type: GET_GOALS_FOR_OBSESSION, goals });
 const createdGoal = goal => ({ type: ADD_NEW_GOAL, goal});
 const deletedGoal = goal => ({ type: DELETE_GOAL, goal});
 
-
+//is it bad practice to pass in the whole object if I am just using ID
 export const fetchGoalsForObsession = (obsession) =>
   dispatch =>
     axios.get(`/api/goal/${obsession.id}`)
       .then(res => res.data)
       .then(goals => {
-        dispatch(getGoals(goals));
+        dispatch(gotGoals(goals));
         history.push(`/obsession/${obsession.id}/goals`);
 
       })

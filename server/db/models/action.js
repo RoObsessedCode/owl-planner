@@ -11,7 +11,7 @@ const Action = db.define('action', {
     allowNull: false
   },
   duration: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.STRING
   }
 });
 

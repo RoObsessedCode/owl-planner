@@ -5,8 +5,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import obsessions from './obsessions';
 import goals from './goals';
+import actions from './actions';
 
-const reducer = combineReducers({obsessions, goals});
+const reducer = combineReducers({obsessions, goals, actions});
 
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({collapsed: true})
 ));
@@ -16,6 +17,7 @@ export default store;
 
 export * from './obsessions';
 export * from './goals';
+export * from './actions';
 
 /*
 
