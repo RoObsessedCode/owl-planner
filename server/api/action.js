@@ -24,3 +24,13 @@ router.get('/:goalId', (req, res, next) => {
     })
     .catch(next);
 });
+
+router.post('/:goalId', (req, res, next) => {
+  req.body.goalId = req.params.goalId;
+  Action.create(req.body)
+    .then(newAction => {
+      newAction.goalId = req.params.goalId;
+      res.json(newAction);
+    })
+    .catch(next);
+})
