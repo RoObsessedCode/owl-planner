@@ -34,3 +34,9 @@ router.post('/:goalId', (req, res, next) => {
     })
     .catch(next);
 })
+
+router.delete('/:id', (req, res, next) => {
+  req.action.destroy()
+    .then(() => res.status(204).end())
+    .catch(next);
+})
