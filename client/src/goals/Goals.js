@@ -6,20 +6,19 @@ import './GoalItem.css';
 import './Goals.css';
 import GoalItem from './GoalItem';
 import ObsessionItem from '../obsessions/ObsessionItem';
-import { removeGoal } from '../store';
+import { removeGoal, fetchActionsForGoal } from '../store';
 
 class Goals extends Component {
 
 
   render() {
-    console.log('Michael Jackson', this.props)
     let obsession = null;
 
     const allGoals = this.props.goals.map((goal) => {
 
-      return <GoalItem key={goal.id} goal={goal} obsessionId={this.props.match.params.id} removeGoal={this.props.removeGoal} />
+      return <GoalItem key={goal.id} goal={goal} obsessionId={this.props.match.params.id} removeGoal={this.props.removeGoal} loadActions={this.props.loadActions} />
     });
-    console.log('LENGTHHH', this.props.goals.length)
+
     if (this.props.goals.length) {
       obsession = this.props.obsessions.find(ob => ob.id === this.props.goals[0].obsessionId);
     }
@@ -57,6 +56,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     removeGoal(goal) {
       dispatch(removeGoal(goal))
+    },
+    loadActions(goal) {
+      dispatch(fetchActionsForGoal(goal))
     }
   }
 }

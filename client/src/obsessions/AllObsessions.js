@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import "./AllObsessions.css";
-import ObsessionItem from "./ObsessionItem"
-import { fetchAllObsessions, removeObsession, fetchGoalsForObsession } from "../store";
+import './AllObsessions.css';
+import ObsessionItem from './ObsessionItem';
+import { fetchAllObsessions, removeObsession, fetchGoalsForObsession } from '../store';
 
 
 

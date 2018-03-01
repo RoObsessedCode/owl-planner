@@ -1,6 +1,6 @@
-.GoalItem-Card {
+.ActionItem-Card {
   position: relative;
-  background: #FF7F50;
+  background: #BA55D3;
   width: 40%;
   padding: 10px 10px 10px 15px;
   margin: 0 0 10px 0;
@@ -11,7 +11,7 @@
 
 }
 
-.GoalItem-Delete {
+.ActionItem-Delete {
   position: absolute;
   left: 1em;
 }

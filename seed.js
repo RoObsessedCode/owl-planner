@@ -1,16 +1,17 @@
 // This file should contain all the record creation needed to seed the database with its default values.
 // The data can then be loaded with the node seed.js
 
-const Promise = require("bluebird");
+const Promise = require('bluebird');
 const {
   db,
   Obsession,
-  Goal
+  Goal,
+  Action
 } = require('./server/db/models');
 
 const obsessionData = [
   {
-    name: 'Salsa',
+    name: 'Dance',
     description: 'Practice Salsa dancing for 15 minutes everyday',
     purpose: 'bring alive what has always been a part of me'
   },
@@ -56,6 +57,31 @@ const goalData = [
     term: '1-year',
     obsessionId: 3
   }
+];
+
+const actionData = [
+  {
+    name: 'Run 3 miles',
+    description: 'interval training',
+    duration: '30 minutes',
+    goalId: 3,
+    obsessionId: 3
+  },
+  {
+    name: 'Eat a Vegetable',
+    description: 'no dressings; handful serving',
+    duration: 'Three times a day',
+    goalId: 3,
+    obsessionId: 3
+  },
+  {
+    name: 'Practice to Rythm',
+    description: 'Get the beat down',
+    duration: '10 minutes a day',
+    goalId: 4,
+    obsessionId: 1
+
+  }
 ]
 
 
@@ -84,23 +110,23 @@ const createGoals = () => {
   });
 };
 
-// const seed = () => {
-//   return createObsessions()
-//     .then(() => {
-//       console.log('obsessions created');
-//     })
-//     .then(() => {
-//       return createGoals();
-//     })
-//     .then(() => {
-//       console.log('goals created');
-//     })
-// };
+const promiseArrActions = () => {
+  return actionData.map(action => {
+    return Action.build(action);
+  });
+};
+
+const createActions = () => {
+  return Promise.map(promiseArrActions(), function(action) {
+    return action.save();
+  })
+}
 
 const seed = () => {
   return createObsessions()
-    .then(() => createGoals());
-}
+    .then(() => createGoals())
+    .then(() => createActions());
+};
 
 db.sync({ force: true })
   .then(function () {
