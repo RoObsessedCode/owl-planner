@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const { Priority } = require("../db/models");
+const router = require('express').Router();
+const { Priority } = require('../db/models');
 module.exports = router;
 
-router.param("id", function(req, res, next, id) {
+router.param('id', function(req, res, next, id) {
   Priority.findById(id)
     .then(priority => {
       if (!priority) res.sendStatus(404);
@@ -12,7 +12,7 @@ router.param("id", function(req, res, next, id) {
     .catch(next);
 });
 
-router.get("/", (req, res, next) => {
+router.get('/', (req, res, next) => {
   Priority.findAll()
     .then(priority => {
       if (!priority) {
@@ -23,16 +23,15 @@ router.get("/", (req, res, next) => {
     .catch(next);
 });
 
-router.post("/", (req, res, next) => {
+router.post('/', (req, res, next) => {
   Priority.create(req.body)
     .then(priority => {
-      console.log("!!!!!our priority!!!!!!");
       res.json(priority);
     })
     .catch(next);
 });
 
-router.put("/:id", (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   req.priority
     .update(req.body)
     .then(updatedPriority => {

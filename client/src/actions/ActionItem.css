@@ -1,6 +1,4 @@
 .ActionItem-Card {
-  /* position: relative;
-  z-index: 1; */
   position: relative;
   background: #BA55D3;
   width: 40%;
@@ -11,4 +9,9 @@
   border-radius: 3px;
   box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.25);
 
+}
+
+.ActionItem-Delete {
+  position: absolute;
+  left: 1em;
 }
