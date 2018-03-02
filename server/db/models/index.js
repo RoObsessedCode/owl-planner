@@ -38,17 +38,17 @@ G1           G2
 // }, {
 
   //scopes takes a function this makes it lazy since it invokes function when we call db.sync by then all models have been generated
-  scopes: {
-    populated2Levels: () => ({
-      include: [{
-        model: db.model('goal'),
-        include: [{
-          model: db.model('action')
-        }]
-      }]
-    })
-  }
-})
+//   scopes: {
+//     populated2Levels: () => ({
+//       include: [{
+//         model: db.model('orders'),
+//         include: [{
+//           model: db.model('orderhistory')
+//         }]
+//       }]
+//     })
+//   }
+// })
 
 // // in routes
 
