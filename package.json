@@ -11,10 +11,10 @@
     "bulma-start": "^0.0.2",
     "express": "^4.16.2",
     "pg": "6.4.2",
-    "sequelize": "^4.32.2"
+    "sequelize": "^4.32.2",
+    "concurrently": "^3.5.0"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0",
     "eslint": "^4.16.0",
     "eslint-plugin-react": "^7.6.0"
   }
