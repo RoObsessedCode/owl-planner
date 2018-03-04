@@ -1,19 +1,21 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import { connect } from "react-redux";
-import { Router } from "react-router";
-import { Route, Switch } from "react-router-dom";
-import history from "./history";
+import { Router } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import history from './history';
 //import PropTypes from "prop-types";
 
-import App from "./app/App.js";
-import MainFocus from "./homePage/MainFocus";
-import AllObsessions from "./obsessions/AllObsessions";
-import AddNewObsession from "./obsessions/AddNewObsession";
-import AddNewGoal from "./goals/AddNewGoal";
-import AddNewAction from "./actions/AddNewAction";
-import Goals from "./goals/Goals";
-import Actions from "./actions/Actions";
-import WeeklySchedule from "./schedule/WeeklySchedule";
+import App from './app/App.js';
+import MainFocus from './homePage/MainFocus';
+import AllObsessions from './obsessions/AllObsessions';
+import AddNewObsession from './obsessions/AddNewObsession';
+import AddNewGoal from './goals/AddNewGoal';
+import AddNewAction from './actions/AddNewAction';
+import Goals from './goals/Goals';
+import Actions from './actions/Actions';
+import WeeklySchedule from './schedule/WeeklySchedule';
 
 /*
 One idea: the way boiler maker does it is that Router has one
