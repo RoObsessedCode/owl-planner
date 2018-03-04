@@ -1,0 +1,24 @@
+.WeeklySchedule-ScheduleDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.WeeklySchedule-Card {
+  position: relative;
+  background: #B8B42D;
+  width: 40%;
+  padding: 10px 10px 10px 15px;
+  margin: 0 0 10px 0;
+  overflow: auto;
+  border: 1px solid #e5e5df;
+  border-radius: 3px;
+  box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.25);
+
+
+}
+
+.WeeklySchedule-DayLabel {
+   font-family: 'Permanent Marker', cursive;
+   font-size: x-large;
+}

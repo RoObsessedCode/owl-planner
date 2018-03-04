@@ -12,6 +12,17 @@ router.param('id', (req, res, next, id) => {
     .catch(next);
 })
 
+router.get('/', (req, res, next) => {
+  return Action.findAll()
+    .then(actions => {
+      if (!actions) {
+        res.sendStatus(404);
+      }
+      res.json(actions);
+    })
+    .catch(next);
+});
+
 router.get('/:goalId', (req, res, next) => {
   return Action.findAll({
     where: { goalId: req.params.goalId }

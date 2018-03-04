@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import owl from "./owl.jpg";
 import "./App.css";
 
+
+
 class App extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       response: ""
@@ -35,11 +38,15 @@ class App extends Component {
           <Link to={"/ao"}>
             <button>Obsessions</button>
           </Link>
+          <Link to={"/WeeklySchedule"}>
+            <button >Schedule</button>
+          </Link>
         </div>
         {this.props.children}
       </div>
     );
   }
 }
+
 
 export default App;
