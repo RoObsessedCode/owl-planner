@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import ActionName from '../actions/ActionName';
+//import ActionName from '../actions/ActionName';
+import AllActions from './AllActions';
+import WeekLayout from './WeekLayout';
 import { fetchAllActions } from "../store";
 
 import "./WeeklySchedule.css";
@@ -16,80 +18,8 @@ class WeeklySchedule extends Component {
     console.log("actions -->", allActions);
     return (
       <div>
-        <div>
-          {allActions.length ? (
-            allActions.map(action => {
-              return (
-                <ActionName key={action.id} action={action} />
-              );
-            })
-          ) : null}
-        </div>
-        <div className="WeeklySchedule-ScheduleDiv">
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Monday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Tuesday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Wednesday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Thursday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Friday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Saturday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Sunday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-        </div>
+        <AllActions allActions={allActions} />
+        <WeekLayout />
       </div>
     );
   }
