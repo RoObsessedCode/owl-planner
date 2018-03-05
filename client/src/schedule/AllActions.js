@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ActionName from '../actions/ActionName';
+import ActionName from './ActionName';
 
 const AllActions = ({ allActions }) => {
   return (

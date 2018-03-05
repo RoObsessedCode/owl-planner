@@ -23,8 +23,8 @@ child component: Main or App and that component is responsible for rendering
 navbar or sidebar or whatever components are static and also it renders
 props.children - kabeesh
 */
-
-export default class Routes extends Component {
+//@DragDropContext(HTML5Backend) --ES7
+class Routes extends Component {
   render() {
     return (
       <Router history={history}>
@@ -44,3 +44,5 @@ export default class Routes extends Component {
     );
   }
 }
+
+export default DragDropContext(HTML5Backend)(Routes);

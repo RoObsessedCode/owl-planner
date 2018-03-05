@@ -8,6 +8,8 @@ import { fetchAllActions } from "../store";
 
 import "./WeeklySchedule.css";
 
+
+
 class WeeklySchedule extends Component {
   componentDidMount() {
     this.props.loadAllActions();
