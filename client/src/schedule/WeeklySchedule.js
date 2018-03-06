@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 
 //import ActionName from '../actions/ActionName';
 import AllActions from './AllActions';
+import AllObsessions from './ListObsessions';
 import WeekLayout from './WeekLayout';
-import { fetchAllActions } from "../store";
+import { fetchAllObsessions } from "../store";
 
 import "./WeeklySchedule.css";
 
@@ -12,15 +13,14 @@ import "./WeeklySchedule.css";
 
 class WeeklySchedule extends Component {
   componentDidMount() {
-    this.props.loadAllActions();
+    this.props.loadAllObsessions();
   }
 
   render() {
-    const { allActions } = this.props;
-    console.log("actions -->", allActions);
+    const { allObsessions } = this.props;
     return (
       <div>
-        <AllActions allActions={allActions} />
+        <AllObsessions allObsessions={allObsessions} />
         <WeekLayout />
       </div>
     );
@@ -29,14 +29,14 @@ class WeeklySchedule extends Component {
 
 const mapStateToProps = state => {
   return {
-    allActions: state.actions
+    allObsessions: state.obsessions
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadAllActions() {
-      dispatch(fetchAllActions());
+    loadAllObsessions() {
+      dispatch(fetchAllObsessions());
     }
   };
 };

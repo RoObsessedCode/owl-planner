@@ -1,3 +1,3 @@
 export const ItemTypes = {
-  ACTION: 'action'
+  OBSESSION: 'obsession'
 };

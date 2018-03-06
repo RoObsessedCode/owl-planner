@@ -1,75 +1,46 @@
-import React from 'react';
+import React, { Component } from "react";
+import { DropTarget } from 'react-dnd';
+import { ItemTypes } from "../constants";
 
-import './WeeklySchedule.css';
+import "./WeeklySchedule.css";
 
-const WeekLayout = () => {
-  return (
-    <div className="WeeklySchedule-ScheduleDiv">
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Monday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Tuesday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Wednesday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Thursday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Friday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Saturday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-          <div className="WeeklySchedule-Card">
-            <label className="WeeklySchedule-DayLabel">Sunday</label>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-            <hr />
-            <div>Take Action Today</div>
-          </div>
-        </div>
-  );
-};
+import WeekDay from './WeekDay'
+
+
+// const weekDayTarget = {
+//   drop(props, monitor, component) {
+
+//   }
+// }
+
+// const collect = (connectDAD, monitor) => {
+//   return {
+//     connectDropTarget: connectDAD.dropTarget(),
+//     isOver: monitor.isOver(),
+//     canDrop: monitor.canDrop()
+//   }
+// }
+
+class WeekLayout extends Component {
+  render() {
+
+    const { x, y, connectDropTarget, isOver } = this.props;
+    const DaysInTheWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    return (
+      <div className="WeeklySchedule-ScheduleDiv">
+        {
+          DaysInTheWeek.length &&
+          DaysInTheWeek.map((day) => {
+            return (
+              <WeekDay key={day} dayOfWeek={day} />
+            );
+          })
+        }
+      </div>
+    )
+  }
+}
+
+// export default DropTarget(ItemTypes.ACTION, weekDayTarget, collect)(WeekLayout);
 
 export default WeekLayout;
