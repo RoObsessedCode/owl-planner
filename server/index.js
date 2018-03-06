@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/api', require('./api'))
 
 //Fill em in ^^
-app.use('/', express.static(`${__dirname}/client/build`));
+app.use('/', express.static(path.join(__dirname, '..','/client/build')));
 
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
