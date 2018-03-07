@@ -1,15 +1,18 @@
 const Priority = require('./priority');
 const Obsession = require('./obsession');
 const Goal = require('./goal');
-const Action = require('./action')
+const Action = require('./action');
+const DayObsessions = require('./dayObsessions');
 const db = require('../db');
+
 
 Obsession.hasMany(Goal);
 // Obsession.hasMany(Action);
 Goal.hasMany(Action);
+Obsession.hasMany(DayObsessions);
 
 
-module.exports =  {db, Priority, Obsession, Goal, Action};
+module.exports =  {db, Priority, Obsession, Goal, Action, DayObsessions};
 
 /*
 O1           O2

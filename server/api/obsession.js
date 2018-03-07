@@ -24,6 +24,8 @@ router.get("/", (req, res, next) => {
 })
 
 router.post("/", (req, res, next) => {
+  console.log('!!!!!!????!!!!!!!', req.body)
+  console.log('regular obsession', Obsession)
   Obsession.create(req.body)
     .then(newObsession => {
       res.json(newObsession);

@@ -7,7 +7,8 @@ import TargetSourceObsession from "./TargetSourceObsession";
 
 class WeekDay extends Component {
   render() {
-    const { dayOfWeek } = this.props;
+    const { dayOfWeek, dateOfWeek } = this.props;
+
     return (
       <div className="WeekDay-Card">
         <label className="WeekDay-TitleLabel">{dayOfWeek}</label>
