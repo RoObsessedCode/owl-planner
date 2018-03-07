@@ -12,6 +12,7 @@ Goal.hasMany(Action);
 Obsession.hasMany(DayObsessions);
 
 
+
 module.exports =  {db, Priority, Obsession, Goal, Action, DayObsessions};
 
 /*

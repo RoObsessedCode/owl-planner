@@ -59,11 +59,11 @@ class WeekLayout extends Component {
 
 
     const week = generateWeekDayDates()
-    console.log('lets see: ', week)
+    // console.log('lets see: ', week)
 
     const { x, y, connectDropTarget, isOver } = this.props;
     const DaysInTheWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const DatesInTheWeek = week[0];
+    const DatesInTheWeek = week[1];
     // console.log('bunnnnnnnies', week[1])
     return (
       <div className="WeeklySchedule-ScheduleDiv">
@@ -71,7 +71,7 @@ class WeekLayout extends Component {
           DaysInTheWeek.length &&
           DaysInTheWeek.map((day, i) => {
             return (
-              <WeekDay key={day} dayOfWeek={day} dateOfWeek={DatesInTheWeek[i]} />
+              <WeekDay key={day} dayIndex={(i+1)%7}dayOfWeek={day} dateOfWeek={DatesInTheWeek[i]} />
             );
           })
         }

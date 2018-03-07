@@ -6,9 +6,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import obsessions from './obsessions';
 import goals from './goals';
 import actions from './actions';
+import dayObsessions from './dayObsessions';
 
 
-const reducer = combineReducers({obsessions, goals, actions});
+const reducer = combineReducers({obsessions, goals, actions, dayObsessions});
 
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, createLogger({collapsed: true})
 ));
@@ -19,6 +20,7 @@ export default store;
 export * from './obsessions';
 export * from './goals';
 export * from './actions';
+export * from './dayObsessions';
 
 /*
 
