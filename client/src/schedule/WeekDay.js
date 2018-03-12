@@ -4,7 +4,7 @@ import { DropTarget } from "react-dnd";
 import { ItemTypes } from "../constants";
 
 import "./WeekDay.css";
-import TargetSourceObsession from "./TargetSourceObsession";
+
 
 import { postNewDayObsessions } from '../store';
 

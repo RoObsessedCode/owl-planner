@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 //import ActionName from '../actions/ActionName';
-import AllActions from './AllActions';
+//import AllActions from './AllActions';
 import AllObsessions from './ListObsessions';
 import WeekLayout from './WeekLayout';
 import { fetchAllObsessions } from "../store";
@@ -43,10 +43,3 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeeklySchedule);
 
-// <label className="WeeklySchedule-Card">Monday</label>
-// <label className="WeeklySchedule-Card">Tuesday</label>
-// <label className="WeeklySchedule-Card">Wednesday</label>
-// <label className="WeeklySchedule-Card">Thursday</label>
-// <label className="WeeklySchedule-Card">Friday</label>
-// <label className="WeeklySchedule-Card">Saturday</label>
-// <label className="WeeklySchedule-Card">Sunday</label>
