@@ -6,6 +6,8 @@
     "bulma": "^0.6.2",
     "bulma-start": "^0.0.2",
     "react": "^16.2.0",
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",

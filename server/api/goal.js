@@ -13,6 +13,8 @@ router.param('id', (req, res, next, id) => {
     })
     .catch(next);
 })
+// 'api/goals/?=obsessionId=345'
+// '/api/obsessions/:obsessionId/goals/' --> this needs to go in obsession route
 
 router.get('/:obsessionId', (req, res, next) => {
   return Goal.findAll({
