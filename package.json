@@ -5,7 +5,8 @@
     "client": "cd client && yarn start",
     "server": "node server/index.js",
     "seed": "node seed.js",
-    "start": "yarn server"
+    "dev": "yarn server",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "dependencies": {
     "body-parser": "^1.18.2",
