@@ -20,6 +20,7 @@ class Goals extends Component {
           obsessionId={this.props.match.params.id}
           removeGoal={this.props.removeGoal}
           loadActions={this.props.loadActions}
+          disableClick={false}
         />
       );
     });

@@ -25,7 +25,7 @@ class Actions extends Component {
 
     return (
       <div className="Actions-HeadDiv">
-        <GoalItem goal={goal} />
+        <GoalItem goal={goal} disableClick={true} />
 
         <Link to={`/${this.props.match.params.id}/AddNewAction`}>
           <button>Add Action</button>
