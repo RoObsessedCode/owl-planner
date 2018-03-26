@@ -4,6 +4,8 @@ import './ObsessionItem.css';
 
 const ObsessionItem = (props) => {
   const { obsession, removeObsession, loadGoals } = props;
+
+  //console.log('specific obsession Item', obsession)
   return (
     <div className="ObsessionItem-Card">
       <button className="ObsessionItem-Delete" onClick={() => removeObsession(obsession)}>X</button>

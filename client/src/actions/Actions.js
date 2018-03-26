@@ -1,45 +1,39 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import './Actions.css';
-import ActionItem from './ActionItem';
-import GoalItem from '../goals/GoalItem';
-import { removeAction } from '../store';
-
+import "./Actions.css";
+import ActionItem from "./ActionItem";
+import GoalItem from "../goals/GoalItem";
+import { removeAction } from "../store";
 
 class Actions extends Component {
-
-
   render() {
-
     let goal = null;
-    const allActions = this.props.actions.map((action) => {
-      return <ActionItem key={action.id} action={action} goalId={this.props.match.params.id} removeAction={this.props.removeAction} />
+    const allActions = this.props.actions.map(action => {
+      return (
+        <ActionItem
+          key={action.id}
+          action={action}
+          goalId={this.props.match.params.id}
+          removeAction={this.props.removeAction}
+        />
+      );
     });
 
-    if (this.props.actions.length) {
-      goal = this.props.goals.find(gl => gl.id === this.props.actions[0].goalId);
-    }
+    goal = this.props.goals.find(gl => gl.id === +this.props.match.params.id);
 
     return (
       <div className="Actions-HeadDiv">
-        {this.props.actions.length ?
-          <GoalItem goal={goal}/>
-          : null
-        }
-                {
-          this.props.actions.length ?
-            <Link to={`/${goal.id}/AddNewAction`}>
-              <button>Add Action</button>
-            </Link>
-            :
-            null
-        }
+        <GoalItem goal={goal} />
+
+        <Link to={`/${this.props.match.params.id}/AddNewAction`}>
+          <button>Add Action</button>
+        </Link>
+
         {allActions}
       </div>
-    )
-
+    );
   }
 }
 
@@ -48,14 +42,14 @@ const mapStateToProps = state => {
     actions: state.actions,
     goals: state.goals
   };
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     removeAction(action) {
-      dispatch(removeAction(action))
+      dispatch(removeAction(action));
     }
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Actions)
+export default connect(mapStateToProps, mapDispatchToProps)(Actions);

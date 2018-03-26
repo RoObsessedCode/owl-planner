@@ -19,25 +19,24 @@ class Goals extends Component {
       return <GoalItem key={goal.id} goal={goal} obsessionId={this.props.match.params.id} removeGoal={this.props.removeGoal} loadActions={this.props.loadActions} />
     });
 
-    if (this.props.goals.length) {
-      obsession = this.props.obsessions.find(ob => ob.id === this.props.goals[0].obsessionId);
-    }
+      console.log('hopin its obsession Id', this.props.match.params.id)
+      obsession = this.props.obsessions.find(ob => ob.id === +this.props.match.params.id);
+      console.log('ALL OBSESSIONSS!!!', this.props.obsessions)
+      console.log('UNO OBSESSION: ', obsession)
+
 
 
     return (
       <div className="Goals-HeadDiv">
-        {this.props.goals.length ?
+
           <ObsessionItem obsession={obsession} />
-          : null
-        }
-        {
-          this.props.goals.length ?
-            <Link to={`/${obsession.id}/AddNewGoal`}>
+
+
+
+            <Link to={`/${this.props.match.params.id}/AddNewGoal`}>
               <button>Add Goal</button>
             </Link>
-            :
-            null
-        }
+
 
         {allGoals}
       </div>
