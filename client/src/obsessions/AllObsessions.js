@@ -17,7 +17,7 @@ class AllObsessions extends Component {
 
     console.log('OBSESSIONS --->', this.props.allObsessions)
     const allObsessions = this.props.allObsessions.map((obsession) => {
-      return <ObsessionItem key={obsession.id} obsession={obsession} removeObsession={this.props.removeObsession} loadGoals={this.props.loadGoals} />
+      return <ObsessionItem key={obsession.id} obsession={obsession} removeObsession={this.props.removeObsession} loadGoals={this.props.loadGoals} disableClick={false}/>
     })
 
     return (

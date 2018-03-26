@@ -1,25 +1,38 @@
-import React from 'react';
+import React from "react";
 
-import './ObsessionItem.css';
+import "./ObsessionItem.css";
 
-const ObsessionItem = (props) => {
-  const { obsession, removeObsession, loadGoals } = props;
+const ObsessionItem = props => {
+  const { obsession, removeObsession, loadGoals, disableClick } = props;
 
   //console.log('specific obsession Item', obsession)
   return (
     <div className="ObsessionItem-Card">
-      <button className="ObsessionItem-Delete" onClick={() => removeObsession(obsession)}>X</button>
+      {disableClick ? null : (
+        <button
+          className="ObsessionItem-Delete"
+          onClick={() => removeObsession(obsession)}
+        >
+          X
+        </button>
+      )}
 
-      <div onClick={() => loadGoals(obsession)} className="ObsessionItem-Name" >{obsession.name}</div>
+      {disableClick ? (
+        <div className="ObsessionItem-Name">{obsession.name}</div>
+      ) : (
+        <div
+          onClick={() => loadGoals(obsession)}
+          className="ObsessionItem-Name"
+        >
+          {obsession.name}
+        </div>
+      )}
 
       <hr />
       <div className="Obsession-Text">{obsession.description}</div>
       <div className="Obsession-Text">{obsession.purpose}</div>
-
     </div>
-  )
-}
-
-
+  );
+};
 
 export default ObsessionItem;
